@@ -78,7 +78,7 @@ console.log("Divisão:"+ dividir(20,10));
 
 
 const realizarOperacao = function(a,b, fn){
-   return fn
+   return fn(a,b)
 }
 
 console.log(realizarOperacao(2,2, somar));
@@ -163,26 +163,24 @@ console.log("elementos positivos, pares e maiores: " + newnumeros);
 // Execute a função para os seguintes datasets:
 
 
-const dogsAge1 =  [5, 2, 4, 1, 15, 8, 3];
+const arrDogs =  [5, 2, 4, 1, 15, 8, 3];
 
 const dogsAge2 = [16, 6, 10, 5, 6, 1, 4];
 
-const calcIdadeHumanaMedia = dogsAge1
-    .filter(age => age <=2)  
-    .map(age => age * 2);
 
-// const calcIdadeHumanaMedia= function (dogsAge) { 
-//        dogsAge.forEach(function(age){
-//             age.filter(age <=2)
-//             .map(age => age * 2)
-//             age.filter(age > 2)
-//             .map(age => 16 + age * 4)
-//             .filter(age > 18)
-//        });
-       
-//     }
+function checkDogsAges(arrDogs) {
 
-// console.log(calcIdadeHumanaMedia());
+    arrDogs.map(age => age<=2? 2*age : 16 + age *4)
+  
+    .filter(age > 18)
+  
+    .reduce((total, age, i) => (total+age)/(i +1), 0);
+  
+  }
+  
+  console.log(checkDogsAges(arrDogs));
+
+
 
 
 //questao 10

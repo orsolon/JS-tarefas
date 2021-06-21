@@ -116,3 +116,39 @@ calcMediaAlunos(alunos, notas);
 // (para n = 6):
 
 //https://www.youtube.com/watch?v=5ZgPaodiXUM
+
+function trianguloEquilatero(n) {
+
+    for (let i = 1; i <= n; i++) { 
+        let output = ''; 
+        for (let j = 2; j <= i; j++) { 
+            output += '*';  
+        }
+        console.log(output);  
+        
+    }
+
+}
+trianguloEquilatero(6);
+
+
+// questão5
+//triangulo de pascal
+
+function pascal(n) {
+    if (n==0) {
+        return [1];         //retorna 1 sempre que o n for zero
+    } else {
+        let old = pascal(n-1);
+      let newA = [];
+      for (var i=0; i<old.length-1; i++)       //faz a iteração 
+        newA.push(old[i]+old[i+1]);            //coloca no array old (variavel auxiliar que calcula o valor da soma dos dois elementos anteriores
+      return [1].concat(newA).concat([1]);      //retorna e concatena no array newA a proxima linha
+    }
+    
+}
+   
+    for (let i=0; i<10; i++)         //criando o valor de n e iterando sobre ele para gerar o triangulo
+    console.log(pascal(i));
+
+
